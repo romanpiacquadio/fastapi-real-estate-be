@@ -3,6 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends
 
 from app.apis.api_a.mainmod import main_func as main_func_a
+from app.apis.api_a.mainmod import my_double
 from app.apis.api_b.mainmod import main_func as main_func_b
 from app.core.auth import get_current_user
 
@@ -22,6 +23,7 @@ async def view_a(
     num: int,
     auth: Depends = Depends(get_current_user),
 ) -> dict[str, int]:
+
     return main_func_a(num)
 
 
@@ -31,3 +33,11 @@ async def view_b(
     auth: Depends = Depends(get_current_user),
 ) -> dict[str, int]:
     return main_func_b(num)
+
+@router.get('/api_c/')
+async def view_double(numero: float, auth: Depends = Depends(get_current_user)):
+    return my_double(numero)
+
+@router.post('/producto')
+async def producto_crear():
+    return mod_productos.crear()
