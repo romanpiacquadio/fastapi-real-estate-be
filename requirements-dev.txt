@@ -11,7 +11,7 @@ anyio==3.7.1
     #   fastapi
     #   httpcore
     #   starlette
-bcrypt==4.1.2
+bcrypt==4.2.0
     # via fastapi-nano (pyproject.toml)
 black==23.12.1
     # via fastapi-nano (pyproject.toml)
@@ -72,7 +72,7 @@ passlib==1.7.4
     # via fastapi-nano (pyproject.toml)
 pathspec==0.12.1
     # via black
-pip-tools==7.3.0
+pip-tools==7.4.1
     # via fastapi-nano (pyproject.toml)
 platformdirs==3.11.0
     # via black
@@ -98,7 +98,7 @@ pytest-cov==4.1.0
     # via fastapi-nano (pyproject.toml)
 python-jose[cryptography]==3.3.0
     # via fastapi-nano (pyproject.toml)
-python-multipart==0.0.6
+python-multipart==0.0.9
     # via fastapi-nano (pyproject.toml)
 requests==2.31.0
     # via fastapi-nano (pyproject.toml)
@@ -121,7 +121,7 @@ typing-extensions==4.8.0
     #   mypy
     #   pydantic
     #   pydantic-core
-urllib3==2.0.7
+urllib3==2.2.2
     # via requests
 uvicorn==0.27.0.post1
     # via fastapi-nano (pyproject.toml)
