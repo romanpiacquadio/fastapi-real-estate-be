@@ -1,16 +1,19 @@
+import uuid
 from sqlalchemy import create_engine, Column, String, Integer, DateTime, Float, Text, DECIMAL, ForeignKey, Boolean, func
 from sqlalchemy.orm import relationship, declarative_base, sessionmaker
 from app.core.database import Base
+from datetime import datetime
+
 
 class User(Base):
     __tablename__ = 'user'
     
-    id = Column(String(36), primary_key=True)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(16), nullable=False)
     email = Column(String(255), nullable=False)
     password = Column(String(32), nullable=False)
-    created_at = Column(DateTime, nullable=False)
-    updated_at = Column(DateTime, nullable=False)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     suscripciones = relationship("Suscripcion", back_populates="user")
 
 class Suscripcion(Base):

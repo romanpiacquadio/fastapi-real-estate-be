@@ -1,13 +1,17 @@
 from __future__ import annotations
+import uuid
 
 from datetime import datetime, timedelta
 from http import HTTPStatus
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
+from app.core.dependencies import get_db
+from app.apis.models.entities import User as UserModel
 
 from app.core import config
 
@@ -22,8 +26,12 @@ class TokenData(BaseModel):
 
 
 class User(BaseModel):
-    username: str
-    disabled: bool = False
+    name: str
+    email: str    
+
+
+class UserCreate(User):
+    password: str
 
 
 class UserInDB(User):
@@ -42,14 +50,12 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
-
 fake_users_db = {
     "ubuntu": {
         "username": config.API_USERNAME,
         "hashed_password": get_password_hash(config.API_PASSWORD),
     }
 }
-
 
 def get_user(db: dict[str, dict[str, dict]], username: str | None) -> UserInDB | None:
     if username not in db:
@@ -115,6 +121,35 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:
     if user is None:
         raise credentials_exception
     return user
+
+
+@router.post('/register', response_model=User, status_code=status.HTTP_201_CREATED )
+async def register_user(user: UserCreate, db: Session = Depends(get_db)):
+    # Verifica si el nombre de usuario ya existe
+    db_user = db.query(UserModel).filter(UserModel.email == user.email).first() # resultado = existeUsuario(user.email)
+
+    if db_user:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email already registered")
+    
+    # Crear una instancia del modelo User
+    new_user = UserModel(
+        name=user.name,
+        email=user.email,
+        password=get_password_hash(user.password),  # Hashear la contraseña
+    ) # new_user = crearUsuario(user)
+
+    try:
+        # Agregar el nuevo usuario a la base de datos
+        presist_user_db(user)
+        # db.add(new_user)
+        # db.commit()
+        # db.refresh(new_user)
+    except Exception as e:
+        print('e', e)
+        # db.rollback()  # Deshacer cualquier cambio si ocurre un error
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Error saving user to the database")
+    
+    return new_user     
 
 
 @router.post("/token", response_model=Token)
