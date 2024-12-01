@@ -10,7 +10,7 @@ anyio==4.6.2.post1
     # via
     #   fastapi
     #   starlette
-bcrypt==4.2.0
+bcrypt==4.2.1
     # via fastapi-nano (pyproject.toml)
 cffi==1.17.0
     # via cryptography

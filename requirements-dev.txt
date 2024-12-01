@@ -11,7 +11,7 @@ anyio==4.6.2.post1
     #   fastapi
     #   httpcore
     #   starlette
-bcrypt==4.2.0
+bcrypt==4.2.1
     # via fastapi-nano (pyproject.toml)
 black==24.10.0
     # via fastapi-nano (pyproject.toml)
