@@ -59,5 +59,5 @@ typing-extensions==4.12.2
     #   fastapi
     #   pydantic
     #   pydantic-core
-uvicorn==0.27.0.post1
+uvicorn==0.34.0
     # via fastapi-nano (pyproject.toml)
