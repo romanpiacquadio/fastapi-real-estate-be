@@ -46,7 +46,7 @@ python-jose[cryptography]==3.5.0
     # via fastapi-nano (pyproject.toml)
 python-multipart==0.0.20
     # via fastapi-nano (pyproject.toml)
-rsa==4.9
+rsa==4.9.1
     # via python-jose
 six==1.17.0
     # via ecdsa
