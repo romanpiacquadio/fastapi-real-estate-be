@@ -28,7 +28,7 @@ h11==0.16.0
     # via uvicorn
 idna==3.10
     # via anyio
-packaging==24.2
+packaging==25.0
     # via gunicorn
 passlib==1.7.4
     # via fastapi-nano (pyproject.toml)
