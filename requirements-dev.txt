@@ -78,7 +78,7 @@ platformdirs==4.3.6
     # via black
 pluggy==1.6.0
     # via pytest
-pyasn1==0.5.0
+pyasn1==0.6.2
     # via
     #   python-jose
     #   rsa
