@@ -16,7 +16,7 @@ cffi==2.0.0
     # via cryptography
 click==8.1.8
     # via uvicorn
-cryptography==45.0.3
+cryptography==46.0.4
     # via python-jose
 ecdsa==0.19.0
     # via python-jose
