@@ -14,7 +14,7 @@ bcrypt==4.2.1
     # via fastapi-nano (pyproject.toml)
 cffi==2.0.0
     # via cryptography
-click==8.1.8
+click==8.4.2
     # via uvicorn
 cryptography==49.0.0
     # via python-jose
