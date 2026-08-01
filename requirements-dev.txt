@@ -15,7 +15,7 @@ bcrypt==4.2.1
     # via fastapi-nano (pyproject.toml)
 black==26.5.1
     # via fastapi-nano (pyproject.toml)
-build==1.0.3
+build==1.5.0
     # via pip-tools
 certifi==2025.7.14
     # via
