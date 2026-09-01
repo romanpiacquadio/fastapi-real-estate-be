@@ -12,7 +12,7 @@ anyio==4.12.1
     #   starlette
 bcrypt==4.2.1
     # via fastapi-nano (pyproject.toml)
-cffi==2.0.0
+cffi==2.1.1
     # via cryptography
 click==8.4.2
     # via uvicorn
