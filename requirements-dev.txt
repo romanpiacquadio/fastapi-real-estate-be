@@ -74,7 +74,7 @@ pathspec==1.1.1
     # via black
 pip-tools==7.6.1
     # via fastapi-nano (pyproject.toml)
-platformdirs==4.11.5
+platformdirs==4.12.1
     # via black
 pluggy==1.6.0
     # via pytest
