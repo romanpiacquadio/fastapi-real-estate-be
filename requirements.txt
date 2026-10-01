@@ -40,7 +40,7 @@ pycparser==2.23
     # via cffi
 pydantic==2.13.5
     # via fastapi
-pydantic-core==2.47.0
+pydantic-core==2.49.0
     # via pydantic
 python-jose[cryptography]==3.5.0
     # via fastapi-nano (pyproject.toml)
