@@ -20,7 +20,7 @@ cryptography==50.0.1
     # via python-jose
 ecdsa==0.19.2
     # via python-jose
-fastapi==0.141.1
+fastapi==0.162.0
     # via fastapi-nano (pyproject.toml)
 gunicorn==26.2.0
     # via fastapi-nano (pyproject.toml)
