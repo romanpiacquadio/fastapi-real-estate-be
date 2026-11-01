@@ -76,7 +76,7 @@ pip-tools==7.6.1
     # via fastapi-nano (pyproject.toml)
 platformdirs==4.12.1
     # via black
-pluggy==1.6.0
+pluggy==1.7.0
     # via pytest
 pyasn1==0.6.4
     # via
