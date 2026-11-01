@@ -121,7 +121,7 @@ typing-extensions==4.16.0
     #   mypy
     #   pydantic
     #   pydantic-core
-urllib3==2.7.0
+urllib3==2.8.0
     # via requests
 uvicorn==0.54.0
     # via fastapi-nano (pyproject.toml)
